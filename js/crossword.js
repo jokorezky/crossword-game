@@ -582,6 +582,7 @@ function highlightWord(clue) {
 }
 
 function selectClue(clue, resizing) {
+  $('#clue_info').show();
   highlightWord(clue);
 
   selectedWord = clue;
@@ -595,7 +596,12 @@ function selectClue(clue, resizing) {
     gridContainer.parent.update();
   }
 
-  $('#header_clue').html(getClueByNumber(selectedWord));
+  var limitSelectedWord = getClueByNumber(selectedWord);
+  if (limitSelectedWord.length > 40) {
+    $('#header_clue').html(limitSelectedWord.substring(0, 40) + '...');
+  } else {
+    $('#header_clue').html(limitSelectedWord);
+  }
 }
 
 function findWordCells(cell, horizontal) {
@@ -1236,7 +1242,6 @@ function Cell(number, x, y) {
   var thisCell = this;
 
   this.onClick = function (e) {
-    console.log('click');
     cellClicked(thisCell, e);
   };
   this.addEventListener('click', this.onClick, false);

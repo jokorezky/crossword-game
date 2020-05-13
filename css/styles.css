@@ -227,7 +227,7 @@ input[type='submit'] {
   top: 45%;
 }
 
-#header_clue {
+/* #header_clue {
   display: table;
   vertical-align: middle;
   line-height: 36px;
@@ -235,7 +235,7 @@ input[type='submit'] {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-}
+} */
 
 .visible {
   display: block;
@@ -581,7 +581,8 @@ input[type='password'] {
 .nav-button-heigh {
   height: 95px;
 }
-#btn_pause object {
+#btn_pause object,
+header_clue object {
   pointer-events: none;
 }
 .hide {
@@ -592,4 +593,9 @@ input[type='password'] {
 }
 .no-padding {
   padding: 0;
+}
+.hint_info {
+  color: black;
+  position: absolute;
+  margin-left: 45px;
 }
