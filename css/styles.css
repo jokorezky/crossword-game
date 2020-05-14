@@ -621,4 +621,5 @@ header_clue object,
 #modalPause {
   border: 5px solid #33bedc;
   border-radius: 6px;
+  width: 36%;
 }

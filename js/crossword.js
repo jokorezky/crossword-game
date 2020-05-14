@@ -818,7 +818,7 @@ function setEvents() {
   });
   $('#btn_play').click(function (e) {
     e.preventDefault();
-    $('#modalPause').closeModal();
+    $('#modalPause').closeModal({ dismissible: false });
     $('#play').addClass('hide');
     $('#pause').removeClass('hide');
     $('#chrono').removeClass('red_text');
@@ -832,7 +832,7 @@ function setEvents() {
       $('#play').removeClass('hide');
       $('#chrono').addClass('red_text');
       $('#chrono').removeClass('black_text');
-      $('#modalPause').openModal();
+      $('#modalPause').openModal({ dismissible: false });
       timer.pause();
     } else {
       $('#play').addClass('hide');
