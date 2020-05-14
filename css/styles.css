@@ -327,7 +327,7 @@ input[type='submit'] {
 }
 
 .clue_highlight {
-  background: #f0f1f5;
+  background: #ffcd6c;
 }
 
 .tile_animator {
@@ -392,6 +392,20 @@ li {
   /* bottom: 36px; */
 }
 
+#dropdown1,
+#dropdownsetting {
+  top: 90px !important;
+  background: transparent;
+  box-shadow: none;
+  width: auto !important;
+  margin-left: -15px;
+}
+ul#dropdown1 li a,
+ul#dropdownsetting li a {
+  padding-bottom: 0;
+  line-height: 0px;
+}
+
 @media all and (min-width: 600px) {
   #content {
     max-width: 826px;
@@ -435,7 +449,7 @@ li {
   }
 
   #clue_list {
-    /* width: 35%; */
+    padding: 0;
     background-color: #fff;
     bottom: 36px;
     max-height: inherit !important;
@@ -582,7 +596,11 @@ input[type='password'] {
   height: 95px;
 }
 #btn_pause object,
-header_clue object {
+header_clue object,
+#cw_menu object,
+#btn_menu_reveal_word object,
+#btn_menu_check object,
+#cw_menu_setting object {
   pointer-events: none;
 }
 .hide {

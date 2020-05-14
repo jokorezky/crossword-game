@@ -242,7 +242,7 @@ function transformDragger(scale, x, y) {
 }
 
 function clearBoard() {
-  $('.fixed-action-btn').closeFAB();
+  // $('.fixed-action-btn').closeFAB();
   $('#clear_title').html(puzzle.labels.clear_dialog_title);
   $('#clear_warning').html(puzzle.labels.clear_dialog_text);
 
@@ -314,6 +314,11 @@ function setupGameMenu() {
   if (supportsTouch()) {
     btn_menu_opener.addClass('click-to-toggle');
   }
+  $(document).ready(function () {
+    $('.dropdown-trigger').dropdown({
+      // constrainWidth: false,
+    });
+  });
 
   if ($('#content').width() <= 600) {
     btn_menu_reveal_letter.parent().remove();
@@ -595,13 +600,10 @@ function selectClue(clue, resizing) {
     selectedCell.setSelected(true);
     gridContainer.parent.update();
   }
-
-  var limitSelectedWord = getClueByNumber(selectedWord);
-  if (limitSelectedWord.length > 40) {
-    $('#header_clue').html(limitSelectedWord.substring(0, 40) + '...');
-  } else {
-    $('#header_clue').html(limitSelectedWord);
-  }
+  var firstString = getClueByNumber(selectedWord).charAt(0);
+  var lastString = getClueByNumber(selectedWord).slice(-1);
+  var hintText = `First letter is ${firstString}. Last letter is ${lastString} `;
+  $('#header_clue').html(hintText);
 }
 
 function findWordCells(cell, horizontal) {
@@ -765,7 +767,6 @@ function cellClicked(newCell) {
   oldSelectedCell = selectedCell;
 
   selectedWord = { number: number, across: horizontal };
-
   selectClue(selectedWord);
 
   if (screen.width >= 600) {
@@ -866,7 +867,7 @@ function setEvents() {
   });
 
   $('#btn_menu_check').click(function () {
-    $('.fixed-action-btn').closeFAB();
+    // $('.fixed-action-btn').closeFAB();
     checkEntireGrid();
   });
 
@@ -881,7 +882,7 @@ function setEvents() {
   $('#btn_menu_clear').click(clearBoard);
 
   $('#btn_menu_reset_zoom').click(function () {
-    $('.fixed-action-btn').closeFAB();
+    // $('.fixed-action-btn').closeFAB();
     resizeGrid(RESIZE_OPTION.RESET);
   });
 
@@ -935,14 +936,8 @@ function triggerInput(selectedCell) {
 function getClueByNumber(w) {
   var arr = w.across ? acrossClues : downClues;
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i].number == w.number) return arr[i].clue;
+    if (arr[i].number == w.number) return arr[i].answer;
   }
-
-  /* for(var i=0;i<clues.length;i++){
-        console.log(clues[i])
-        if(clues[i].number ==n)
-            return clues[i].clue;
-    }*/
 }
 
 function setLetter(letter, focusNextCell) {
@@ -1155,8 +1150,29 @@ function clearEntireGrid() {
   }
   stage.update();
 }
+function paint(color) {
+  var shape = new createjs.Shape();
 
+  shape.graphics.beginFill(color);
+
+  shape.graphics.snapToPixel = true;
+  shape.graphics.drawRect(0, 0, cellSize.width, cellSize.height);
+  shape.graphics.endFill();
+
+  shape.graphics.setStrokeStyle(1);
+  shape.graphics.beginStroke('#393939');
+  shape.graphics.moveTo(0, 0);
+  shape.graphics.lineTo(0, cellSize.width);
+
+  shape.graphics.moveTo(0, 0);
+  shape.graphics.lineTo(cellSize.width, 0);
+  shape.graphics.endStroke();
+
+  return shape;
+}
 function checkEntireGrid() {
+  this.gridX = x;
+  this.gridY = y;
   for (var x = 0; x < cellMap.length; x++) {
     for (var y = 0; y < cellMap[x].length; y++) {
       if (cellMap[x][y])
@@ -1215,7 +1231,7 @@ function Cell(number, x, y) {
   this.highlightBg.visible = false;
   this.selectBg.visible = false;
 
-  this.incorrectBg = paintTriangle(puzzle.settings.wrong_cell_color);
+  this.incorrectBg = paint(puzzle.settings.wrong_cell_color);
   this.addChild(this.incorrectBg);
   this.incorrectBg.visible = false;
 
