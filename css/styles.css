@@ -64,19 +64,23 @@ html {
 
 #btn_start_wrapper {
   position: absolute;
-  z-index: 10;
-  right: 10%;
-  bottom: 0;
+  left: 34px;
+  top: 7px;
+  font-size: 22px;
 }
 
 #btn_start {
   bottom: -27.5px;
 }
 
+.mt-5 {
+  margin-top: 5px !important;
+}
+
 #chrono {
   position: absolute;
-  left: 35px;
-  top: 17px;
+  left: 33px;
+  top: 7px;
   font-size: 22px;
 }
 .remove-hover:hover {
@@ -299,8 +303,19 @@ input[type='submit'] {
   cursor: default;
 }
 
+#play {
+  position: absolute;
+  top: 9px;
+  left: 158px;
+}
+#pause {
+  position: absolute;
+  top: 17px;
+  left: 146px;
+}
+
 .clue_list_label {
-  padding-top: 20px;
+  padding-top: 3px;
   font-weight: bold;
   font-size: 14px;
   padding-left: 5px;
@@ -392,18 +407,36 @@ li {
   /* bottom: 36px; */
 }
 
+#dropdown1 {
+  top: 55px !important;
+  margin-left: -15px;
+}
+#dropdownsetting {
+  top: 70px !important;
+  margin-left: 0px;
+}
 #dropdown1,
 #dropdownsetting {
-  top: 90px !important;
   background: transparent;
   box-shadow: none;
   width: auto !important;
-  margin-left: -15px;
 }
 ul#dropdown1 li a,
 ul#dropdownsetting li a {
   padding-bottom: 0;
   line-height: 0px;
+}
+
+ul#dropdown1 li a .btn,
+ul#dropdownsetting li a {
+  background-color: #fab837 !important;
+}
+#hint object {
+  width: 19px;
+}
+
+.yellow-btn {
+  background-color: #fab837 !important;
 }
 
 @media all and (min-width: 600px) {
@@ -557,9 +590,13 @@ input[type='password'] {
   height: 1px;
   background-color: transparent;
 }
-
+nav.indigo,
+nav .nav-wrapper i {
+  height: 49px;
+  line-height: 49px;
+}
 #crossword_canvas {
-  border: 2px solid #4f4f4f;
+  border: 1.5357px solid #333333;
 }
 #logo.mt {
   margin-top: 120px;
@@ -575,6 +612,15 @@ input[type='password'] {
 .customButton {
   border-radius: 4px;
   padding: 0;
+  width: 45px;
+  height: 45px;
+  padding-top: 10px;
+}
+.customButton object {
+  width: 27px;
+}
+.btn.setting-button {
+  background-color: #ed1b33;
 }
 .mr-15 {
   margin-right: 15px;
@@ -589,11 +635,17 @@ input[type='password'] {
   font-size: 40px;
 }
 .startbutton {
-  font-size: 25px;
+  font-size: 20px;
   letter-spacing: 4px;
 }
 .nav-button-heigh {
-  height: 95px;
+  height: 77px;
+}
+.horn-icon {
+  padding: 14px !important;
+}
+.horn-icon object {
+  width: 18px;
 }
 #btn_pause object,
 header_clue object,
@@ -601,9 +653,12 @@ header_clue object,
 #btn_menu_reveal_word object,
 #btn_menu_check object,
 #cw_menu_setting object,
-#btn_play object {
+#btn_play object,
+.customButton object,
+#hint object {
   pointer-events: none;
 }
+
 .hide {
   display: none;
 }
@@ -615,11 +670,22 @@ header_clue object,
 }
 .hint_info {
   color: black;
-  position: absolute;
-  margin-left: 45px;
+  background: #fff;
+  width: 310px;
+  height: 45px;
+  padding: 0px;
+  line-height: 3;
+  padding-left: 10px;
+  margin-top: 10px;
+  border: 3px solid #f8b837;
+  border-radius: 4px;
 }
 #modalPause {
   border: 5px solid #33bedc;
   border-radius: 6px;
   width: 36%;
+}
+.btn.btn-size {
+  font-size: 12px;
+  font-weight: bold;
 }

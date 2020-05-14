@@ -111,13 +111,16 @@
         <nav class="right transparent z-depth-0 nav-button-heigh">
           <div class="nav-wrapper">
             <ul class="right">
-              <li class="mr-15 mt-15 remove-hover">
-                <a href="#modal1" class="modal-trigger customButton">
+              <li class="mr-15 mt-5 remove-hover">
+                <a
+                  id="cw_menu_setting"
+                  class="waves-effect waves-light btn setting-button customButton"
+                >
                   <object
-                    data="svg/button_setting.svg"
+                    data="svg/icon_setting.svg"
                     type="image/svg+xml"
-                  ></object
-                ></a>
+                  ></object>
+                </a>
               </li>
             </ul>
           </div>
@@ -130,7 +133,7 @@
           <div class="section">
             <a
               id="btn_start"
-              class="waves-effect waves-light amber darken-1 btn btn-large customFontBadabb startbutton mt-15 tooltipped"
+              class="waves-effect waves-light amber darken-1 btn customFontBadabb startbutton mt-15 tooltipped"
               data-position="top"
               data-tooltip="Play game"
               >START
@@ -168,6 +171,7 @@
           <div class="nav-wrapper">
             <ul>
               <li class="mr-15 mt-15 ml-15 remove-hover">
+                <object data="svg/bg-time.svg"> </object>
                 <div id="btn_pause" type="image/svg+xml">
                   <div id="chrono" class="black_text"></div>
                   <div
@@ -176,7 +180,7 @@
                     data-position="top"
                     data-tooltip="play"
                   >
-                    <object data="svg/btn-play.svg"> </object>
+                    <object data="svg/icon-play.svg"> </object>
                   </div>
                   <div
                     id="pause"
@@ -184,7 +188,7 @@
                     data-position="top"
                     data-tooltip="pause"
                   >
-                    <object data="svg/time-counter.svg" type="image/svg+xml">
+                    <object data="svg/icon_pause.svg" type="image/svg+xml">
                     </object>
                   </div>
                 </div>
@@ -193,100 +197,101 @@
             <ul>
               <li
                 id="clue_info"
-                class="mt-15 remove-hover"
+                class="mt-5 remove-hover"
                 style="display: none;"
               >
-                <div id="header_clue" class="primary_text hint_info"></div>
-                <object data="svg/method-draw-image.svg" type="image/svg+xml">
-                </object>
+                <div>
+                  <div id="header_clue" class="primary_text hint_info"></div>
+                </div>
               </li>
             </ul>
 
             <ul class="right">
-              <li class="mr-15 mt-15 remove-hover">
+              <li class="mr-15 remove-hover mt-5">
                 <a
                   id="cw_menu"
-                  class="dropdown-trigger customButton tooltipped"
+                  class="dropdown-trigger waves-effect waves-light btn setting-button customButton tooltipped yellow-btn"
                   data-position="top"
                   data-tooltip="Dropdown"
                   href="#"
                   data-target="dropdown1"
                   data-activates="dropdown1"
                 >
-                  <object data="svg/check.svg" type="image/svg+xml"></object>
+                  <object data="svg/ab.svg" type="image/svg+xml"></object>
                 </a>
                 <!-- Dropdown Structure -->
                 <ul id="dropdown1" class="dropdown-content">
                   <li class="remove-hover">
                     <a
                       id="btn_menu_check"
-                      class="customButton tooltipped"
+                      class="tooltipped"
                       data-position="top"
                       data-tooltip="Check written word"
                     >
-                      <object
-                        data="svg/checkword.svg"
-                        type="image/svg+xml"
-                      ></object>
+                      <button class="waves-effect waves-light btn btn-size">
+                        CHECK WORD
+                      </button>
                     </a>
                   </li>
                   <li class="remove-hover">
                     <a
                       id="btn_menu_reveal_word"
-                      class="customButton tooltipped"
+                      class="tooltipped"
                       data-position="top"
                       data-tooltip="Solve word"
                     >
-                      <object
-                        data="svg/solveword.svg"
-                        type="image/svg+xml"
-                      ></object>
+                      <button class="waves-effect waves-light btn btn-size">
+                        SOLVE WORD
+                      </button>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="mr-15 mt-15 remove-hover">
-                <a class="modal-trigger customButton">
-                  <object data="svg/hint.svg" type="image/svg+xml"></object
-                ></a>
+              <li class="mr-15 mt-5 remove-hover">
+                <a
+                  id="hint"
+                  class="dropdown-trigger waves-effect waves-light btn setting-button customButton tooltipped yellow-btn"
+                  data-position="top"
+                  data-tooltip="Hint"
+                  href="#"
+                >
+                  <object data="svg/lamp.svg" type="image/svg+xml"></object>
+                </a>
               </li>
-              <li class="mr-15 mt-15 remove-hover">
+              <li class="mr-15 mt-5 remove-hover">
                 <a
                   id="cw_menu_setting"
-                  class="dropdown-trigger customButton tooltipped"
+                  class="dropdown-trigger waves-effect waves-light btn setting-button customButton tooltipped"
                   data-position="top"
                   data-tooltip="Settings"
                   data-target="dropdownsetting"
                   data-activates="dropdownsetting"
                 >
                   <object
-                    data="svg/button_setting.svg"
+                    data="svg/icon_setting.svg"
                     type="image/svg+xml"
                   ></object
                 ></a>
                 <ul id="dropdownsetting" class="dropdown-content">
                   <li class="remove-hover">
-                    <a class="customButton">
-                      <object
-                        data="svg/sound-on.svg"
-                        type="image/svg+xml"
-                      ></object>
+                    <a
+                      class="waves-effect waves-light btn customButton horn-icon"
+                    >
+                      <object data="svg/horn.svg" type="image/svg+xml"></object>
                     </a>
                   </li>
                   <li class="remove-hover">
-                    <a class="customButton">
-                      <object
-                        data="svg/text-small.svg"
-                        type="image/svg+xml"
-                      ></object>
+                    <a
+                      class="waves-effect waves-light btn customButton horn-icon"
+                    >
+                      <object data="svg/atop.svg" type="image/svg+xml"></object>
                     </a>
                   </li>
                   <li class="remove-hover">
-                    <a class="customButton">
-                      <object
-                        data="svg/text-large.svg"
-                        type="image/svg+xml"
-                      ></object>
+                    <a
+                      class="waves-effect waves-light btn customButton horn-icon"
+                    >
+                      <object data="svg/abtm.svg" type="image/svg+xml"></object>
                     </a>
                   </li>
                 </ul>

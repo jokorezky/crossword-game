@@ -406,6 +406,7 @@ function setupClueLists() {
   var parent, ink, d, x, y;
 
   $('#clue_list li a').click(function (e) {
+    $('#clue_info').hide();
     var selectedId = $(this).parent().attr('id');
     var num = selectedId.substring(selectedId.lastIndexOf('_') + 1);
     num = parseInt(num);
@@ -553,7 +554,7 @@ function createCrosswordGrid() {
         shape.graphics.beginFill(puzzle.settings.empty_cell_color);
         shape.graphics.drawRect(0, 0, cellSize.width, cellSize.height);
         shape.graphics.endFill();
-        shape.graphics.setStrokeStyle(1);
+        shape.graphics.setStrokeStyle(2);
         shape.graphics.beginStroke(puzzle.settings.cell_line_color);
         shape.graphics.moveTo(0, 0);
         shape.graphics.lineTo(0, cellSize.width);
@@ -587,7 +588,6 @@ function highlightWord(clue) {
 }
 
 function selectClue(clue, resizing) {
-  $('#clue_info').show();
   highlightWord(clue);
 
   selectedWord = clue;
@@ -701,6 +701,7 @@ function renderClue(rightAway) {
 }
 
 function cellClicked(newCell) {
+  $('#clue_info').hide();
   $('#key_interceptor').blur();
   var oldSelectedCell;
 
@@ -1404,6 +1405,9 @@ function jsonLoaded(data) {
 }
 
 function main() {
+  $('#hint').click(function () {
+    if ($('#header_clue').html() !== '') $('#clue_info').show();
+  });
   setEvents();
 
   canvas = document.getElementById('crossword_canvas');
@@ -1443,7 +1447,15 @@ function main() {
     }, 5000);
   }
 }
+function loadImage() {
+  var img = new Image();
+  img.onload = function () {
+    copyCanvas(img);
+  };
+  img.src = 'svg/btn-play.svg';
+}
 
+$(document).ready(loadImage);
 $(document).ready(loadJsonFile);
 
 function loadJsonFile() {
