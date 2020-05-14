@@ -381,14 +381,23 @@
 
     <!-- modal paused -->
     <div id="modalPause" class="modal">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-          >Agree</a
+      <div class="modal-content center">
+        <p><strong>Game Paused</strong></p>
+        <div
+          id="btn_play"
+          class="tooltipped mt-15"
+          data-position="top"
+          data-tooltip="continue game"
         >
+          <object data="svg/button_continue.svg" type="image/svg+xml"> </object>
+        </div>
+        <div
+          class="tooltipped mt-15"
+          data-position="top"
+          data-tooltip="surrender game"
+        >
+          <object data="svg/surrender.svg" type="image/svg+xml"> </object>
+        </div>
       </div>
     </div>
 

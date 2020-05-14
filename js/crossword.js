@@ -816,7 +816,15 @@ function setEvents() {
       $('#chrono').html(timer.getTimeValues().toString());
     });
   });
-
+  $('#btn_play').click(function (e) {
+    e.preventDefault();
+    $('#modalPause').closeModal();
+    $('#play').addClass('hide');
+    $('#pause').removeClass('hide');
+    $('#chrono').removeClass('red_text');
+    $('#chrono').addClass('black_text');
+    timer.start();
+  });
   $('#btn_pause').click(function (e) {
     e.preventDefault();
     if ($('#play').hasClass('hide')) {
@@ -824,6 +832,7 @@ function setEvents() {
       $('#play').removeClass('hide');
       $('#chrono').addClass('red_text');
       $('#chrono').removeClass('black_text');
+      $('#modalPause').openModal();
       timer.pause();
     } else {
       $('#play').addClass('hide');

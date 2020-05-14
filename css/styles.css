@@ -600,7 +600,8 @@ header_clue object,
 #cw_menu object,
 #btn_menu_reveal_word object,
 #btn_menu_check object,
-#cw_menu_setting object {
+#cw_menu_setting object,
+#btn_play object {
   pointer-events: none;
 }
 .hide {
@@ -616,4 +617,8 @@ header_clue object,
   color: black;
   position: absolute;
   margin-left: 45px;
+}
+#modalPause {
+  border: 5px solid #33bedc;
+  border-radius: 6px;
 }
